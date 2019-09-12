@@ -1,7 +1,6 @@
 name: Automate project columns
 
-# on: [issues, pull_request]
-on: [fork]
+on: [issues, pull_request]
 
 jobs:
   automate-project-columns:
@@ -13,7 +12,7 @@ jobs:
         with:
           project: testproject
           column: To do
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GH_ACTIONS_TOKEN }}
 
       - name: Move assinged pull requests into To do
         if: github.event_name == 'pull_request' && github.event.action == 'assigned'
@@ -21,4 +20,4 @@ jobs:
         with:
           project: Test project
           column: To do
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GH_ACTIONS_TOKEN }}
