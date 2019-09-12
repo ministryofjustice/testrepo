@@ -6,7 +6,8 @@ require "uri"
 
 GITHUB_API_URL = "https://api.github.com/graphql"
 
-def run_query(json)
+def run_query(query)
+  json = {query: query}.to_json
   headers = {"Authorization" => "bearer #{ENV.fetch('GITHUB_TOKEN')}"}
 
   uri = URI.parse(GITHUB_API_URL)
@@ -22,36 +23,34 @@ puts "Hello from ruby"
 
 query = %[
 {
-  query {
-    resource(url: "https://github.com/ministryofjustice/testrepo/issues/15") {
-      ... on Issue {
-        projectCards {
+  resource(url: "https://github.com/ministryofjustice/testrepo/issues/15") {
+    ... on Issue {
+      projectCards {
+        nodes {
+          id
+        }
+      }
+      repository {
+        projects(search: "testproject", first: 10, states: [OPEN]) {
           nodes {
             id
-          }
-        }
-        repository {
-          projects(search: "testproject", first: 10, states: [OPEN]) {
-            nodes {
-              id
-              columns(first: 100) {
-                nodes {
-                  id
-                  name
-                }
+            columns(first: 100) {
+              nodes {
+                id
+                name
               }
             }
           }
-          owner {
-            ... on Organization {
-              projects(search: "testproject", first: 10, states: [OPEN]) {
-                nodes {
-                  id
-                  columns(first: 100) {
-                    nodes {
-                      id
-                      name
-                    }
+        }
+        owner {
+          ... on Organization {
+            projects(search: "testproject", first: 10, states: [OPEN]) {
+              nodes {
+                id
+                columns(first: 100) {
+                  nodes {
+                    id
+                    name
                   }
                 }
               }
