@@ -1,0 +1,12 @@
+name: Hello Issue
+
+on: [issues]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Say thank you
+      run: echo Thank you for the issue
+
