@@ -12,3 +12,5 @@ jobs:
         ruby-version: '2.6'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - run: ruby hello.rb
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
