@@ -1,6 +1,7 @@
 name: Hello Issue
 
-on: [issues]
+# on: [issues]
+on: []
 
 jobs:
   say-hello:
