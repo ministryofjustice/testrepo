@@ -3,9 +3,11 @@ name: Ruby action
 on: [issues]
 
 jobs:
-  steps:
-  - uses: actions/checkout@master
-  - uses: actions/setup-ruby@v2
-    with:
-      ruby-version: '2.6'
-  - run: ruby hello.rb
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-ruby@v2
+      with:
+        ruby-version: '2.6'
+    - run: ruby hello.rb
