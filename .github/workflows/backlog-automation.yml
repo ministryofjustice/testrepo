@@ -1,7 +1,7 @@
 name: Automate project columns
 
 # on: [issues, pull_request]
-on: []
+on: [fork]
 
 jobs:
   automate-project-columns:

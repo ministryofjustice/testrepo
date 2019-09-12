@@ -1,7 +1,7 @@
 name: Hello Issue
 
 # on: [issues]
-on: []
+on: [fork]
 
 jobs:
   say-hello:
