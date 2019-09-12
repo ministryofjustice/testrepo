@@ -7,7 +7,7 @@ require "uri"
 GITHUB_API_URL = "https://api.github.com/graphql"
 
 def run_query(json)
-  headers = {"Authorization" => "bearer #{token}"}
+  headers = {"Authorization" => "bearer #{ENV.fetch('GITHUB_TOKEN')}"}
 
   uri = URI.parse(GITHUB_API_URL)
   resp = Net::HTTP.post(uri, json, headers)
