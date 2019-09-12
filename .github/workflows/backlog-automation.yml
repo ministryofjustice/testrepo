@@ -10,7 +10,7 @@ jobs:
         if: github.event_name == 'issues' && github.event.action == 'opened'
         uses: alex-page/github-project-automation-plus@v0.0.3
         with:
-          project: Test project
+          project: testproject
           column: To do
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
