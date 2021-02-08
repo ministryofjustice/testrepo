@@ -9,5 +9,5 @@ jobs:
     name: Release tag
     runs-on: ubuntu-latest
     steps:
-    - run: echo Release: ${GITHUB_REF}
+    - run: echo "Release ${GITHUB_REF}"
     - run: helm version
