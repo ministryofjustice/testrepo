@@ -10,4 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo "Release ${GITHUB_REF}"
+    - run: export TAG=$(echo ${GITHUB_REF} | sed 's/refs.tags.//')
+    - run: echo "Tag ${TAG}"
     - run: helm version
