@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: release-tag
-        run: echo "Release: ${GITHUB_REF}"
+        run: echo Release: ${GITHUB_REF}
       - name: helm-present
         run: helm version
