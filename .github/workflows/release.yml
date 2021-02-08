@@ -1,0 +1,13 @@
+name: Release workflow
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  main:
+    name: Release tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: release-tag
+        run: echo "Release: ${GITHUB_REF}"
