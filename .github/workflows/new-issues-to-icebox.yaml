@@ -12,4 +12,4 @@ jobs:
         with:
           project: Test Project Board
           column: Icebox
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.PROJECT_AUTOMATION_GITHUB_TOKEN }}
